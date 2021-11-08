@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Include meta tag to ensure proper rendering and touch zooming -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	
+	<script>
+		const direccion= '170.239.87.199/mobilesii2'
+  //const direccion= '127.0.0.1/mobilesii2/php';
+	</script>
+
+<link rel="stylesheet" href="css/micss.css" />
+</head>
+<body>
+
+<!--Page 1   Ventana Login-->
+	<div data-role="page" id="page1">
+		<div data-role="header">
+			<h1>Ventas Mobile</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+        <img src="img/logoN2.png" id="centerig"/><br>
+			<p>Login</p><br>
+    
+			
+			<label>Usuario</label>
+			<input type="text" name="txtuser" id="txtuser"/><br>
+			<label>Clave</label>
+			<input type="password" name="txtpass" id="txtpass"/><br>
+			<button id="btnLogin">Login</button>
+
+		</div>
+
+		<div data-role="footer">
+			<h1>www.dtepro.cl</h1>
+		</div>
+	</div> 
+
+<!--Fin Page 1-->
+
+<!--Page 2  Ventana Buscar Rutas para generar Pedido-->
+
+	<div data-role="page" id="page2">
+		<div data-role="header">
+			 <a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+        <a href="#page5" class="ui-btn ui-icon-check ui-btn-icon-left">Ventas Dia</a>
+			<h1>Ventas Mobile</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p><b>Rutas</b></p>
+			<label>Fechas</label>
+			<input type="date" name="txtfecha" id="txtfecha"/><br>
+			<button id="btnBuscar">Buscar</button>
+		</div>
+
+		<div data-role="footer">
+			<h1>www.dtepro.cl</h1>
+		</div>
+	</div> 
+
+  <!--Fin Page 2-->
+  
+  <!--Page 3  Ventana Buscar Pedido-->
+
+	<div data-role="page" id="page3">
+		<div data-role="header">
+			 <a href="#page2" class="ui-btn ui-icon-back ui-btn-icon-left">Volver</a>
+			<h1>Ventas Mobile</h1>
+		</div>
+
+		<div data-role="main" class="ui-content">
+			<p>Rutas</p>
+		     <input type="text" id="seleccionado" name="seleccionado" />
+            <table id="tablaruta" data-role="table" data-mode="columntoggle" >
+					<thead>
+						<tr>
+							<th data-priority="1">Id</th>
+							<th data-priority="2">Cliente</th>
+							<th data-priority="3">Estado</th>
+						</tr>
+
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+
+
+		</div>
+
+		<div data-role="footer">
+			<h1>www.dtepro.cl</h1>
+		</div>
+	</div> 
+
+  <!--Fin Page 3-->
+
+  <!--Page 4   Ingreso de Pedidos-->
+
+  <div data-role="page" id="page4">
+    <div data-role="header">
+       <a href="#page2" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+       <a href="#page3" class="ui-btn ui-icon-back ui-btn-icon-left">Volver</a>
+      <h1>Pedido</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <label>Usuario</label>
+      <input type="text" id="txtus" name="txtus"/>
+      <label>Cliente</label>
+      <input type="text" id="txtcli" name="txtcli"/>
+      <label>Producto</label>
+      <ul id="listview" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Producto..." id="txtprod0" name="txtprod0"></ul>
+      <label>Producto</label>
+      <input type="text" name="txtprod" id="txtprod"/><br>
+      <label>Un</label>
+      <input type="text" name="txtun" id="txtun"/><br>
+      <label>Cantidad</label>
+      <input type="text" name="txtcan" id="txtcan"/>
+      <label>Precio$</label>
+      <input type="text" name="txtpr" id="txtpr"/>
+
+
+      <button id="btnAgregar">Agregar</button><br>
+      <label id="total">Total $</label>
+      <button id="btnFinalizar">Finalizar</button><br>
+      <form id="myForm">
+        <table id="table" data-role="table" data-mode="columntoggle" >
+          <thead>
+            <tr>
+              <th data-priority="1">Producto</th>
+              <th data-priority="2">Un</th>
+              <th data-priority="3">Q</th>
+              <th data-priority="4">$</th>
+              <th data-priority="5">Total</th>
+              <th data-priority="6"></th>
+            </tr>
+
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </form>
+    </div>
+ </div>
+
+  <!--Fin Page 4-->
+
+    <!--Page 5   Buscar Pedido Generados-->
+
+  <div data-role="page" id="page5">
+    <div data-role="header">
+       <a href="#page1" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+       
+      <h1>Ventas Mobile</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <p>Ventas por dia</p>
+      <label>Fechas</label>
+      <input type="date" name="txtfecha2" id="txtfecha2"/><br>
+      <button id="btnBuscardia">Buscar</button>
+    </div>
+
+    <div data-role="footer">
+      <h1>www.dtepro.cl</h1>
+    </div>
+  </div> 
+
+  <!--Fin Page 5-->
+
+  <!--Page 6   Lista Pedido Generados-->
+
+  <div data-role="page" id="page6">
+    <div data-role="header">
+       <a href="#page5" class="ui-btn ui-icon-back ui-btn-icon-left">Volver</a>
+      <h1>Ventas Mobile</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+      <p id="titestadistica">Ventas del dia</p>
+      <label id="estadistica">0</label>
+       
+            <table id="tablaventasdia" data-role="table" data-mode="columntoggle" class="ui-responsive">
+          <thead>
+            <tr>
+              <th  data-priority="1">Id</th>
+              <th  data-priority="2">Cliente</th>
+              <th  data-priority="3">Total</th>
+              <th  data-priority="4">Estado</th>
+            </tr>
+
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+
+
+    </div>
+
+    <div data-role="footer">
+      <h1>www.dtepro.cl</h1>
+    </div>
+  </div> 
+
+ <!--Fin Page 6-->
+
+
+  <!--Page 7   Ingreso de Pedidos-->
+
+  <div data-role="page" id="page7">
+    <div data-role="header">
+       <a href="#page5" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+       <a href="#page6" class="ui-btn ui-icon-back ui-btn-icon-left">Volver</a>
+      <h1>Ver Pedido</h1>
+    </div>
+    <div role="main" class="ui-content">
+      <label>Usuario</label>
+      <input type="text" id="txtus1" name="txtus1"/>
+       <label>Numero Pedido</label>
+      <input type="text" id="txtid" name="txtid"/>
+      <label>Cliente</label>
+      <input type="text" id="txtcli1" name="txtcli1"/>
+
+
+
+      <label id="total1">Total $</label>
+      <form id="myForm1">
+        <table id="table1" data-role="table" data-mode="columntoggle" >
+          <thead>
+            <tr>
+              <th data-priority="1">Producto</th>
+              <th data-priority="2">Un</th>
+              <th data-priority="3">Q</th>
+              <th data-priority="4">$</th>
+              <th data-priority="5">Total</th>
+              <th data-priority="6"></th>
+            </tr>
+
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </form>
+    </div>
+ </div>
+
+  <!--Fin Page 7-->
+
+ 
+  <script src="js/mijs.js"></script>
+  <script src="js/page1.js"></script>
+  <script src="js/page2.js"></script>
+  <script src="js/page3.js"></script>
+  <script src="js/page4.js"></script>
+  <script src="js/page5.js"></script>
+  <script src="js/page6.js"></script>
+
+
+
+</body>
+
+
+</html>
